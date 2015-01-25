@@ -59,15 +59,29 @@ if (!file.exists(dataFile)) {
   # combine testing and training data set
   combined <- rbind(test,train)
   
+  # make names more readable 
+  names(combined) <- sub("\\.$","", gsub("\\.+", ".", names(combined)))
+  
   # save combined dataset to dataFile 
   save(combined, file = dataFile)
   
-  # clean intermediatae variables
+  # clean intermediatae variabless
   rm(train, test, temp, Ytrain, Ytest, Xtrain, Xtest, trainSubjects, testSubjects, 
      activityLabels, attributeNames, Xtrain_select, Xtest_select, combined)
 }
 
 load(dataFile)
 setwd(ProjectDirectory)
+
+# create the tidy dataset required for step 5
+final <- combined %>% group_by(subject, Activity) %>% summarise_each(funs(mean))
+
+# write the data file
+
+write.table(final, file="tidy.txt", row.names=FALSE)
+
+# write tidy_features.txt with the feature names of the tidy dataset
+write.table(names(final), file="tidy_freatures.txt", row.names=FALSE, col.names=FALSE)
+
 
 
