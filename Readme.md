@@ -3,7 +3,7 @@
 ## Repository content and File Descriptions 
 
 1. run_analysis.R:  R script that performs the required analythis
-2. CodeBook.md:  Short description of the variables in the tidy.txt file created by run_analysis.R
+2. [CodeBook.md](CodeBook.md): Short description of the variables in the tidy.txt file created by run_analysis.R
 3. Readme.md: This file
 
 ## Usage
