@@ -6,7 +6,17 @@
 2. [CodeBook.md](CodeBook.md): Short description of the variables in the tidy.txt file created by run_analysis.R
 3. Readme.md: This file
 
+## Requirements
+
+The dplyr library is required.
+
 ## Usage
+
+Run run_analysis.R by typing:
+
+```
+Rscript run_analysis.R on the command line.
+```
 
 Running run_analysis.R will download the source data from the internet and unpack it. This will create a data directory calles "UCI HAR Dataset".
 Then the steps 1-4 are performed on the data and the result is cached to "UCI HAR Dataset/dataset.RData"
