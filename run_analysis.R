@@ -1,5 +1,7 @@
 # inspired by http://rstudio-pubs-static.s3.amazonaws.com/10696_c676703d98c84553b9e3510b095153b9.html
 
+library(dplyr)
+
 ProjectDirectory = getwd()
 DataDirectory = "UCI HAR Dataset/"
 dataFile = "dataset.RData"
