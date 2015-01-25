@@ -62,8 +62,11 @@ if (!file.exists(dataFile)) {
   combined <- rbind(test,train)
   
   # make names more readable 
-  names(combined) <- sub("\\.$","", gsub("\\.+", ".", names(combined)))
-  
+  readable_names <- sub("\\.mean", "Mean", names(combined))
+  readable_names <- sub("\\.std", "Std", readable_names)
+  readable_names <- gsub("\\.","", readable_names)
+  names(combined) <- readable_names
+
   # save combined dataset to dataFile 
   save(combined, file = dataFile)
   
