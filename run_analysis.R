@@ -12,12 +12,18 @@ if (!file.exists(DataDirectory)) {
 stopifnot(file.exists(DataDirectory))
 setwd(DataDirectory)
 if (!file.exists(dataFile)) {
+  # read activity lables
   temp = read.table("activity_labels.txt", sep = "")
   activityLabels = as.character(temp$V2)
+  
+  # read feature names
   temp = read.table("features.txt", sep = "")
   attributeNames = temp$V2
+  
+  # make fetrure names proper names and unique
   attributeNames <- make.names(attributeNames, unique=TRUE)
   
+  # read the training data set
   Xtrain = read.table("train/X_train.txt", sep = "")
   names(Xtrain) = attributeNames
   Ytrain = read.table("train/y_train.txt", sep = "")
@@ -33,6 +39,8 @@ if (!file.exists(dataFile)) {
   
   train = cbind(Xtrain_select, trainSubjects, Ytrain)
   
+  # read the test data set
+  
   Xtest = read.table("test/X_test.txt", sep = "")
   names(Xtest) = attributeNames
   Ytest = read.table("test/y_test.txt", sep = "")
@@ -42,12 +50,19 @@ if (!file.exists(dataFile)) {
   testSubjects = read.table("test/subject_test.txt", sep = "")
   names(testSubjects) = "subject"
   testSubjects$subject = as.factor(testSubjects$subject)
+  
+  # select only thte mean and std columns
+  
   Xtest_select <- select(Xtest, contains(".mean.."), contains(".std.."))
   test = cbind(Xtest_select, testSubjects, Ytest)
   
+  # combine testing and training data set
   combined <- rbind(test,train)
   
+  # save combined dataset to dataFile 
   save(combined, file = dataFile)
+  
+  # clean intermediatae variables
   rm(train, test, temp, Ytrain, Ytest, Xtrain, Xtest, trainSubjects, testSubjects, 
      activityLabels, attributeNames, Xtrain_select, Xtest_select, combined)
 }
