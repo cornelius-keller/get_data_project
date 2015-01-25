@@ -13,10 +13,10 @@ The dplyr library is required.
 ## Usage
 
 Run run_analysis.R by typing:
-
 ```
-Rscript run_analysis.R on the command line.
+Rscript run_analysis.R
 ```
+on the command line.
 
 Running run_analysis.R will download the source data from the internet and unpack it. This will create a data directory calles "UCI HAR Dataset".
 Then the steps 1-4 are performed on the data and the result is cached to "UCI HAR Dataset/dataset.RData"
@@ -25,7 +25,7 @@ Downloading the data is only performed when the folder "UCI HAR Dataset" does no
 
 The preparing steps 1-4 are only performed when "UCI HAR Dataset/dataset.RData" does not exist.
 
-## Results a ( not included in repository )
+## Results ( not included in repository )
 
 1. tidy.txt: File containing the tidy data set
 2. tidy_featurs.txt: file containing the column names of the tidy data set.
