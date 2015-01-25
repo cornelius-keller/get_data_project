@@ -7,7 +7,7 @@ For both the trainig and the test dataset the following steps are performed.
 
 1. The activity lables are read from activity_labels.txt
 2. The feature names are read from features.txt
-3  The feature names are made proper unique R variable names.
+3.  The feature names are made proper unique R variable names.
 4. The features are read from X_(train|test).txt
 5. The activitys are read from y_(train|test).txt
 6. The subjets are read form (train|test)_subjects.txt
